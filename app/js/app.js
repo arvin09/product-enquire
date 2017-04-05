@@ -29,9 +29,15 @@ var appModule = (function($, helperModule) {
 		loadProducts('1');
 	}
 
-	function getEnquireDetail(event){
-		var selectedProduct = $(event.currentTarget).data('product')
+	function getSelectedProduct(event,type){
+		var selectedProduct = $(event.currentTarget).parent().parent().data('product');
+		if(type === 'modal'){
+			$('.modal-title').html(selectedProduct.name)
+		}else{
+			// code for button goes here
+		}
 		console.log(selectedProduct);
+		console.log(type)
 	}
 
 	function loadProducts(categoryId){
@@ -40,13 +46,13 @@ var appModule = (function($, helperModule) {
 			var selectedProduct = productData['category'+ categoryId];
 
 		$.each(selectedProduct, function(index,prodObject){
-			productHTML += "<div class='col-lg-4 col-md-6 mb-4'><div class='card h-100'>";
-			productHTML += "<a href='#'><img class='card-img-top img-fluid' id='6' data-toggle='modal' data-target='#myModal'";
+			productHTML += "<div class='col-lg-4 col-md-6 mb-4'><div class='card h-100' data-product='"+ JSON.stringify(prodObject) +"'>";
+			productHTML += "<a href='#'><img class='card-img-top img-fluid' id='6' onclick='appModule.getSelectedProduct(event,\"modal\")' data-toggle='modal' data-target='#myModal'";
 			productHTML += "src='http://tympanus.net/Tutorials/CaptionHoverEffects/images/"+ prodObject.imageUrl +"' alt='"+ prodObject.imageUrl +"'></a>";
 			productHTML += "<div class='card-block'><h4 class='card-title'><a href='#''>"+ prodObject.name +"</a></h4><h5>$24.99</h5>";
 			productHTML += "<p class='card-text'>"+ prodObject.description +"</p></div>"
 			productHTML += "<div class='card-footer'>"
-			productHTML += "<button type='button' data-product='"+ JSON.stringify(prodObject) +"' onclick='myModule.getEnquireDetail(event)' class='btn btn-info'><span class='fa fa-envelope'></span> Enquire</button>"
+			productHTML += "<button type='button' onclick='appModule.getSelectedProduct(event,\"button\")' class='btn btn-info'><span class='fa fa-envelope'></span> Enquire</button>"
 			productHTML += "</div></div></div>"
 		});
 
@@ -54,7 +60,7 @@ var appModule = (function($, helperModule) {
 	}
 
 	return {
-		getEnquireDetail: getEnquireDetail,
+		getSelectedProduct: getSelectedProduct,
 		loadProducts: loadProducts
 	}
 
