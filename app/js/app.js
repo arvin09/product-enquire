@@ -1,5 +1,5 @@
 // IIFE - Immediately Invoked Function Expression
-var myModule = (function($, helperModule) {
+var appModule = (function($, helperModule) {
 
 	// The $ is now locally scoped
 	var productData = {},
