@@ -1,0 +1,27 @@
+{
+  "name": "product-enquire",
+  "version": "1.0.0",
+  "description": "Simple product enquire website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvin09/product-enquire.git"
+  },
+  "keywords": [
+    "product-enquire"
+  ],
+  "author": "Arvin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arvin09/product-enquire/issues"
+  },
+  "homepage": "https://github.com/arvin09/product-enquire#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}
