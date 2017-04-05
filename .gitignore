@@ -5,6 +5,7 @@ node_modules
 
 # bower
 bower_components
+dist
 
 # temporary and generated files
 .generated
