@@ -38,8 +38,8 @@ var appModule = (function($, helperModule) {
 		}else{
 			// code for button goes here
 		}
-		console.log(selectedProduct);
-		console.log(type);
+		console.info(selectedProduct);
+		console.info(type);
 	}
 
 	function loadProducts(categoryId){
@@ -48,7 +48,6 @@ var appModule = (function($, helperModule) {
 			var selectedProduct = productData['category'+ categoryId];
 
 		$.each(selectedProduct, function(index,prodObject){
-
 			productHTML += '<div class="col-lg-4 col-md-6 mb-4"><div class="card'+index+' h-100">';
 			productHTML += '<a href="#"><img class="card-img-top img-fluid" id="6" onclick="appModule.getSelectedProduct(event,\'modal\')" data-toggle="modal" data-target="#myModal"';
 			productHTML += 'src="http://tympanus.net/Tutorials/CaptionHoverEffects/images/'+ prodObject.imageUrl +'" alt="'+ prodObject.imageUrl +'"></a>';
@@ -57,14 +56,13 @@ var appModule = (function($, helperModule) {
 			productHTML += '<div class="card-footer">';
 			productHTML += '<button type="button" onclick="appModule.getSelectedProduct(event,\'button\')" class="btn btn-info"><span class="fa fa-envelope"></span> Enquire</button>';
 			productHTML += '</div></div></div>';
-
-			productContainer.append(productHTML);
-			productHTML = '';
-			$('.card'+index).data('product',prodObject);
-
 		});
 
-		
+		productContainer.html(productHTML);
+
+		$.each(selectedProduct, function(index,prodObject){
+			$('.card'+index).data('product',prodObject);
+		});
 	}
 
 	return {
