@@ -9,6 +9,6 @@ function getApiData(apiUrl,method){
 
 return {
 	getApiData: getApiData
-}
+};
 
-}())
+}());
