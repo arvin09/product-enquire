@@ -1,8 +1,18 @@
 {
   "name": "product-enquire",
   "version": "1.0.0",
-  "description": "Simple product enquire website",
-  "main": "index.js",
+  "description": "This is a simple product enquire website",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-useref": "^3.1.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,18 +20,10 @@
     "type": "git",
     "url": "git+https://github.com/arvin09/product-enquire.git"
   },
-  "keywords": [
-    "product-enquire"
-  ],
   "author": "Arvin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/arvin09/product-enquire/issues"
   },
-  "homepage": "https://github.com/arvin09/product-enquire#readme",
-  "devDependencies": {
-    "browser-sync": "^2.18.8",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
-  }
+  "homepage": "https://github.com/arvin09/product-enquire#readme"
 }
