@@ -1,3 +1,5 @@
+'use strict'
+
 var helperModule = (function(){
 
 function getApiData(apiUrl,method){
