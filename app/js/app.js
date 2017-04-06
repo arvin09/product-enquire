@@ -32,12 +32,12 @@ var appModule = (function($, helperModule) {
 	function getSelectedProduct(event,type){
 		var selectedProduct = $(event.currentTarget).parent().parent().data('product');
 		if(type === 'modal'){
-			$('.modal-title').html(selectedProduct.name)
+			$('.modal-title').html(selectedProduct.name);
 		}else{
 			// code for button goes here
 		}
 		console.log(selectedProduct);
-		console.log(type)
+		console.log(type);
 	}
 
 	function loadProducts(categoryId){
@@ -50,10 +50,10 @@ var appModule = (function($, helperModule) {
 			productHTML += "<a href='#'><img class='card-img-top img-fluid' id='6' onclick='appModule.getSelectedProduct(event,\"modal\")' data-toggle='modal' data-target='#myModal'";
 			productHTML += "src='http://tympanus.net/Tutorials/CaptionHoverEffects/images/"+ prodObject.imageUrl +"' alt='"+ prodObject.imageUrl +"'></a>";
 			productHTML += "<div class='card-block'><h4 class='card-title'><a href='#''>"+ prodObject.name +"</a></h4><h5>$24.99</h5>";
-			productHTML += "<p class='card-text'>"+ prodObject.description +"</p></div>"
-			productHTML += "<div class='card-footer'>"
-			productHTML += "<button type='button' onclick='appModule.getSelectedProduct(event,\"button\")' class='btn btn-info'><span class='fa fa-envelope'></span> Enquire</button>"
-			productHTML += "</div></div></div>"
+			productHTML += "<p class='card-text'>"+ prodObject.description +"</p></div>";
+			productHTML += "<div class='card-footer'>";
+			productHTML += "<button type='button' onclick='appModule.getSelectedProduct(event,\"button\")' class='btn btn-info'><span class='fa fa-envelope'></span> Enquire</button>";
+			productHTML += "</div></div></div>";
 		});
 
 		productContainer.html(productHTML);
@@ -62,7 +62,7 @@ var appModule = (function($, helperModule) {
 	return {
 		getSelectedProduct: getSelectedProduct,
 		loadProducts: loadProducts
-	}
+	};
 
 }(window.jQuery, helperModule));
 // The global jQuery object is passed as a parameter
