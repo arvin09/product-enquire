@@ -16,6 +16,8 @@ var appModule = (function($, helperModule) {
 				productData = JSON.parse(response);
 				console.log(productData);
 				initialize();
+				getscrollUpDown();
+				scrolltoTop();
 			});
 
 		$('#myModal').on('show.bs.modal', function (e) {
@@ -23,21 +25,78 @@ var appModule = (function($, helperModule) {
 			$('.img-responsive').attr('src', image);
 		});
 
+		
 	});
 
 	// The rest of the code goes here!
 
+	function getscrollUpDown()
+	{
+           $('body').scrollspy({target: ".navbar", offset: 50});   
+
+            // Add smooth scrolling on all links inside the navbar
+           $("#myNavbar a,footer a[href='#myPage']").on('click', function(event) {
+             // Make sure this.hash has a value before overriding default behavior
+             if (this.hash !== "") {
+                 // Prevent default anchor click behavior
+               event.preventDefault();
+
+             // Store hash
+              var hash = this.hash;
+
+               // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+             $('html, body').animate({
+               scrollTop: $(hash).offset().top
+               }, 800, function(){
+   
+          // Add hash (#) to URL when done scrolling (default click behavior)
+           window.location.hash = hash;
+      });
+    }  // End if
+  });
+  
+   $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });            
+	
+   }
+	
+	
+	
+  function scrolltoTop()
+	{ 
+        window.onscroll = function() {scrollFunction()};
+
+           function scrollFunction() {
+               if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+        } 
+	   else {
+          document.getElementById("myBtn").style.display = "none";
+        }
+      }
+	}
+	
+	
 	function initialize(){
 		loadProducts('1');
 	}
 
-	function getSelectedProduct(event,type){
+	function getSelectedProduct(event,type)
+	{
 		var selectedProduct = $(event.currentTarget).parent().parent().data('product');
 		if(type === 'modal'){
-			$('.detail-description .modal-title').html(selectedProduct.name);
+			$('.modal-title').html(selectedProduct.name);
 		}else{
 			// code for button goes here
-			$('.enquire-form .product-name').text(selectedProduct.name);
 		}
 		console.info(selectedProduct);
 		console.info(type);
@@ -49,13 +108,13 @@ var appModule = (function($, helperModule) {
 			var selectedProduct = productData['category'+ categoryId];
 
 		$.each(selectedProduct, function(index,prodObject){
-			productHTML += '<div class="col-lg-4 col-md-6 mb-4"><div class="card card'+index+' h-100">';
+			productHTML += '<div class="col-lg-4 col-md-6 mb-4"><div class="card'+index+' h-100">';
 			productHTML += '<a href="#"><img class="card-img-top img-fluid" id="6" onclick="appModule.getSelectedProduct(event,\'modal\')" data-toggle="modal" data-target="#myModal"';
 			productHTML += 'src="http://tympanus.net/Tutorials/CaptionHoverEffects/images/'+ prodObject.imageUrl +'" alt="'+ prodObject.imageUrl +'"></a>';
 			productHTML += '<div class="card-block"><h4 class="card-title"><a href="#">'+ prodObject.name +'</a></h4><h5>$24.99</h5>';
 			productHTML += '<p class="card-text">'+ prodObject.description +'</p></div>';
 			productHTML += '<div class="card-footer">';
-			productHTML += '<button type="button" data-toggle="modal" data-target="#myModalHorizontal" onclick="appModule.getSelectedProduct(event,\'button\')" class="btn btn-info"><span class="fa fa-envelope"></span> Enquire</button>';
+			productHTML += '<button type="button" onclick="appModule.getSelectedProduct(event,\'button\')" class="btn btn-info"><span class="fa fa-envelope"></span> Enquire</button>';
 			productHTML += '</div></div></div>';
 		});
 
