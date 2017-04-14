@@ -108,7 +108,7 @@ var appModule = (function($, helperModule) {
 			var selectedProduct = productData['category'+ categoryId];
 
 		$.each(selectedProduct, function(index,prodObject){
-			productHTML += '<div class="col-lg-4 col-md-6 mb-4"><div class="card'+index+' h-100">';
+			productHTML += '<div class="col-lg-4 col-md-6 mb-4"><div class="card card'+index+' h-100">';
 			productHTML += '<a href="#"><img class="card-img-top img-fluid" id="6" onclick="appModule.getSelectedProduct(event,\'modal\')" data-toggle="modal" data-target="#myModal"';
 			productHTML += 'src="http://tympanus.net/Tutorials/CaptionHoverEffects/images/'+ prodObject.imageUrl +'" alt="'+ prodObject.imageUrl +'"></a>';
 			productHTML += '<div class="card-block"><h4 class="card-title"><a href="#">'+ prodObject.name +'</a></h4><h5>$24.99</h5>';
