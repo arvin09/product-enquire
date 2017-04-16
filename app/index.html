@@ -18,7 +18,10 @@
 
     <!-- Custom CSS -->
     <!--build:css css/styles.min.css-->
+	
     <link href="css/home.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/footerstyler.css" rel="stylesheet">
     <!-- endbuild -->
 
     
@@ -47,34 +50,33 @@
     
 </head>
 
-<body>
+<body id="myPage">
+
+    <button id="myBtn" title="Go to top"><a href="#myPage">Top</a></button>
 
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
             <a class="navbar-brand" href="#">Shiv Bhavani Enterprise</a>
-            <div class="collapse navbar-collapse" id="navbarExample">
+            <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#myPage">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#AboutMe">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <section id="home">
     <!-- Page Content -->
     <div class="container">
 
@@ -91,7 +93,7 @@
 
             </div>
             <!-- /.col-lg-3 -->
-
+             
             <div class="col-lg-9">
 
                 <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -157,18 +159,162 @@
       
     </div>
   </div>
-    
-    
+  </section>
 
-    
-    <!-- Footer -->
-    <footer class="py-5 bg-inverse">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+    <!-- Enquire Form -->
+
+    <div class="enquire-form">
+        <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">
+                            Enquire form
+                        </h4>
+                        <button type="button" class="close"
+                                data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <form class="form-horizontal" role="form">
+                        <div class="modal-body">
+
+
+
+                            <div class="form-group">
+                                <label  class="col-sm-12 control-label">Product : <b><span class="product-name"></span></b></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label"
+                                        for="inputQuantity">Quantity</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control"
+                                           id="inputQuantity" placeholder="e.g. 100" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label"
+                                        for="inputEmail3">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control"
+                                           id="inputEmail3" placeholder="e.g. test@test.com" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="inputMobile" >Mobile</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control"
+                                           id="inputMobile" placeholder="e.g. 0123456789" maxlength="10" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="inputAddress" >Address</label>
+                                <div class="col-sm-10">
+                            <textarea class="form-control" placeholder="enter address"
+                                      id="inputAddress" required></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Modal Footer -->
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-danger"
+                                    data-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Submit Enquire
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </div>
-        <!-- /.container -->
-    </footer>
+    </div>
+  
+      <!-- About Company -->
+    
+<section id="AboutMe" class="slideanim">
+<div class="Abtdiv">
+  <h3 id="gvShade">About Us</h3>
+    <p class="aboutme">Howdydo.I'm Ashish Waghmare,a Software Devloper and a Web Application Front-end Interface(GUI)Design.<p>
+	<p class="aboutme">With 2 years experience in the internet industry under my belt,<p>
+	 <p class="aboutme">living and working in Mumbai,Plain and Simple,I love coding and designing</p>
+	  <p class="aboutme">I'm passionate about creating clean,unique,elegant designs and code.</p>
+	   <p class="aboutme">I create professional and attractive websites & softwares built according to Web Standards</p>
+	    
 
+</div>
+</section>
+	
+	
+
+	
+    <section id="contact" class="slideanim">
+    <!-- Footer -->
+  	<footer class="footer-distributed" style="font-family: -webkit-body !Important;">
+
+			<div class="footer-left">
+            
+				<h3 style="font-family: -webkit-body !Important;">Shiv Bhavani<span>Enterprise</span></h3>
+
+				<p class="footer-links">
+					<a href="#myPage"><i class="up"></i></a>
+				</p>
+
+				<p class="footer-company-name">Shiv Bhavani Enterprises &copy; 2017</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>Maitri Street Sec 21</span> kamothe, Navi-Mumbai</p>
+					
+				</div>
+ 
+ 
+ 
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+98 76543210</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">shivBhavani@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+			<a href="#home" title="To Top"><span class="glyphicon glyphicon-chevron-up" style="font-size: 20px;margin-bottom: 20px;color: #f4511e;"></span></a>
+				<div class="footer-icons">
+                      
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+				</div>
+
+			</div>
+
+		</footer>
+		</section>
+	    <a href="#home" title="To Top"><span class="glyphicon glyphicon-chevron-up" style="font-size: 20px;margin-bottom: 20px;color: #f4511e;"></span></a>
     <!-- jQuery Version 3.2.1 -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
